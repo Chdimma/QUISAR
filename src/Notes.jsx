@@ -141,21 +141,21 @@ function Notes() {
   }
 
   return (
-    <div className="min-h-screen w-full flex flex-col bg-[#0E0F17] text-white">
+    <div className="min-h-screen w-full flex flex-col transition-colors duration-300 bg-gradient-to-b from-pink-50 via-white to-white text-gray-900 dark:bg-gradient-to-b dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 dark:text-gray-100">
       {/* Header */}
-      <header className="sticky top-0 z-20 flex items-center gap-3 px-5 py-4 border-b border-slate-700/60 bg-[#0E0F17]/90 backdrop-blur-sm">
+      <header className="sticky top-0 z-20 flex items-center gap-3 px-5 py-4 border-b backdrop-blur-sm bg-white/80 border-gray-200 dark:bg-gray-900/80 dark:border-gray-700">
         <button
           type="button"
           onClick={() => navigate('/home')}
           aria-label="Go back to Home"
-          className="flex items-center justify-center w-10 h-10 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
+          className="flex items-center justify-center w-10 h-10 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/60 transition-colors"
         >
           <ArrowLeft size={22} />
         </button>
 
         <div className="flex-1 min-w-0">
-          <h1 className="text-xl font-bold text-slate-100 truncate">My Notes</h1>
-          <p className="text-xs text-slate-400 truncate">
+          <h1 className="text-xl font-bold text-gray-900 dark:text-slate-100 truncate">My Notes</h1>
+          <p className="text-xs text-gray-500 dark:text-slate-400 truncate">
             Jot down study ideas and quick thoughts.
           </p>
         </div>
@@ -177,10 +177,10 @@ function Notes() {
             {notes.map((note) => (
               <article
                 key={note.id}
-                className="flex flex-col gap-3 p-5 rounded-xl bg-slate-900/80 border border-slate-700/60 hover:border-[#e06691]/40 transition-colors"
+                className="flex flex-col gap-3 p-5 rounded-xl bg-white border border-gray-200 hover:border-[#e06691]/50 transition-colors dark:bg-gray-800/60 dark:border-gray-700 dark:hover:border-[#e06691]/50"
               >
                 <div className="flex items-start justify-between gap-2">
-                  <h2 className="text-lg font-semibold text-slate-100 leading-snug break-words min-w-0">
+                  <h2 className="text-lg font-semibold text-gray-900 dark:text-slate-100 leading-snug break-words min-w-0">
                     {note.title}
                   </h2>
                   <div className="flex items-center gap-1 shrink-0">
@@ -189,7 +189,7 @@ function Notes() {
                       onClick={() => openEditNote(note)}
                       aria-label={`Edit ${note.title}`}
                       title="Edit note"
-                      className="flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 hover:text-[#e06691] hover:bg-[#e06691]/10 transition-colors"
+                      className="flex items-center justify-center w-8 h-8 rounded-lg text-gray-400 hover:text-[#e06691] hover:bg-[#e06691]/10 dark:text-slate-400 transition-colors"
                     >
                       <Pencil size={16} />
                     </button>
@@ -198,7 +198,7 @@ function Notes() {
                       onClick={() => handleDeleteNote(note.id)}
                       aria-label={`Delete ${note.title}`}
                       title="Delete note"
-                      className="flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 hover:text-red-400 hover:bg-red-400/10 transition-colors"
+                      className="flex items-center justify-center w-8 h-8 rounded-lg text-gray-400 hover:text-red-400 hover:bg-red-400/10 dark:text-slate-400 transition-colors"
                     >
                       <Trash2 size={16} />
                     </button>
@@ -206,12 +206,12 @@ function Notes() {
                 </div>
 
                 {note.content && (
-                  <p className="text-sm text-slate-400 leading-relaxed line-clamp-3">
+                  <p className="text-sm text-gray-500 dark:text-slate-400 leading-relaxed line-clamp-3">
                     {note.content}
                   </p>
                 )}
 
-                <p className="mt-auto pt-2 text-xs text-slate-400">
+                <p className="mt-auto pt-2 text-xs text-gray-500 dark:text-slate-400">
                   Last updated {formatTimestamp(note.updatedAt)}
                 </p>
               </article>
@@ -219,10 +219,10 @@ function Notes() {
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center gap-4 py-20 text-center">
-            <span className="flex items-center justify-center w-16 h-16 rounded-2xl bg-slate-900/80 border border-slate-700/60">
+            <span className="flex items-center justify-center w-16 h-16 rounded-2xl bg-white border border-gray-200 dark:bg-gray-800/60 dark:border-gray-700">
               <StickyNote size={32} className="text-[#e06691]" />
             </span>
-            <p className="text-slate-400">
+            <p className="text-gray-500 dark:text-slate-400">
               No notes yet. Click + to write your first note!
             </p>
             <button

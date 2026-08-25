@@ -70,23 +70,23 @@ function RecordDetail() {
 
   if (!record) {
     return (
-      <div className="min-h-screen w-full flex flex-col bg-[#0E0F17] text-white">
-        <header className="sticky top-0 z-20 flex items-center gap-3 px-5 py-4 border-b border-slate-700/60 bg-[#0E0F17]/90 backdrop-blur-sm">
+      <div className="min-h-screen w-full flex flex-col transition-colors duration-300 bg-gradient-to-b from-pink-50 via-white to-white text-gray-900 dark:bg-gradient-to-b dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 dark:text-gray-100">
+        <header className="sticky top-0 z-20 flex items-center gap-3 px-5 py-4 border-b backdrop-blur-sm bg-white/80 border-gray-200 dark:bg-gray-900/80 dark:border-gray-700">
           <button
             type="button"
             onClick={() => navigate('/records')}
             aria-label="Go back to Records"
-            className="flex items-center justify-center w-10 h-10 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
+            className="flex items-center justify-center w-10 h-10 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/60 transition-colors"
           >
             <ArrowLeft size={22} />
           </button>
-          <h1 className="text-xl font-bold text-slate-100 truncate">
+          <h1 className="text-xl font-bold text-gray-900 dark:text-slate-100 truncate">
             Record Not Found
           </h1>
         </header>
         <main className="flex-1 w-full max-w-2xl mx-auto px-5 py-6">
           <div className="flex flex-col items-center justify-center gap-4 py-20 text-center">
-            <p className="text-slate-400">
+            <p className="text-gray-500 dark:text-slate-400">
               This quiz record could not be found.
             </p>
             <button
@@ -105,23 +105,23 @@ function RecordDetail() {
   const percentage = Math.round((record.correct / record.total) * 100)
 
   return (
-    <div className="min-h-screen w-full flex flex-col bg-[#0E0F17] text-white">
+    <div className="min-h-screen w-full flex flex-col transition-colors duration-300 bg-gradient-to-b from-pink-50 via-white to-white text-gray-900 dark:bg-gradient-to-b dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 dark:text-gray-100">
       {/* Header */}
-      <header className="sticky top-0 z-20 flex items-center gap-3 px-5 py-4 border-b border-slate-700/60 bg-[#0E0F17]/90 backdrop-blur-sm">
+      <header className="sticky top-0 z-20 flex items-center gap-3 px-5 py-4 border-b backdrop-blur-sm bg-white/80 border-gray-200 dark:bg-gray-900/80 dark:border-gray-700">
         <button
           type="button"
           onClick={() => navigate('/records')}
           aria-label="Go back to Records"
-          className="flex items-center justify-center w-10 h-10 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
+          className="flex items-center justify-center w-10 h-10 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/60 transition-colors"
         >
           <ArrowLeft size={22} />
         </button>
 
         <div className="flex-1 min-w-0">
-          <h1 className="text-xl font-bold text-slate-100 truncate">
+          <h1 className="text-xl font-bold text-gray-900 dark:text-slate-100 truncate">
             Quiz Review
           </h1>
-          <p className="text-xs text-slate-400 truncate">
+          <p className="text-xs text-gray-500 dark:text-slate-400 truncate">
             {record.title}
           </p>
         </div>
@@ -131,11 +131,11 @@ function RecordDetail() {
       <main className="flex-1 w-full max-w-2xl mx-auto px-5 py-6 pb-28">
         <div className="flex flex-col gap-5">
           {/* Summary card */}
-          <section className="rounded-xl bg-slate-900/80 border border-slate-700/60 p-6">
-            <h2 className="text-lg font-semibold text-slate-100 mb-1">
+          <section className="rounded-xl bg-white border border-gray-200 p-6 dark:bg-gray-800/60 dark:border-gray-700">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-slate-100 mb-1">
               {record.title}
             </h2>
-            <p className="flex items-center gap-1.5 text-xs text-slate-400 mb-5">
+            <p className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-slate-400 mb-5">
               <Clock size={14} />
               {formatTimestamp(record.timestamp)}
             </p>
@@ -144,10 +144,10 @@ function RecordDetail() {
             <div className="flex items-center justify-center mb-5">
               <div className="relative flex items-center justify-center w-32 h-32 rounded-full border-4 border-[#e06691]/30">
                 <div className="flex flex-col items-center">
-                  <span className="text-3xl font-bold text-slate-100">
+                  <span className="text-3xl font-bold text-gray-900 dark:text-slate-100">
                     {percentage}%
                   </span>
-                  <span className="text-xs text-slate-400">Score</span>
+                  <span className="text-xs text-gray-500 dark:text-slate-400">Score</span>
                 </div>
               </div>
             </div>
@@ -156,36 +156,36 @@ function RecordDetail() {
             <div className="grid grid-cols-2 gap-3">
               <div className="flex flex-col items-center gap-1.5 p-4 rounded-xl bg-green-500/10 border border-green-500/30">
                 <CheckCircle2 size={22} className="text-green-400" />
-                <span className="text-2xl font-bold text-slate-100">
+                <span className="text-2xl font-bold text-gray-900 dark:text-slate-100">
                   {record.correct}
                 </span>
-                <span className="text-xs text-slate-400">Correct</span>
+                <span className="text-xs text-gray-500 dark:text-slate-400">Correct</span>
               </div>
               <div className="flex flex-col items-center gap-1.5 p-4 rounded-xl bg-red-500/10 border border-red-500/30">
                 <XCircle size={22} className="text-red-400" />
-                <span className="text-2xl font-bold text-slate-100">
+                <span className="text-2xl font-bold text-gray-900 dark:text-slate-100">
                   {record.failed}
                 </span>
-                <span className="text-xs text-slate-400">Failed</span>
+                <span className="text-xs text-gray-500 dark:text-slate-400">Failed</span>
               </div>
             </div>
           </section>
 
           {/* Feedback */}
-          <section className="rounded-xl bg-slate-900/80 border border-slate-700/60 p-6">
+          <section className="rounded-xl bg-white border border-gray-200 p-6 dark:bg-gray-800/60 dark:border-gray-700">
             <div className="flex items-center gap-3">
               <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#e06691]/10 text-[#e06691] border border-[#e06691]/30">
                 <Trophy size={20} />
               </span>
               <div>
-                <p className="text-base font-semibold text-slate-100">
+                <p className="text-base font-semibold text-gray-900 dark:text-slate-100">
                   {percentage >= 80
                     ? 'Great job!'
                     : percentage >= 50
                       ? 'Keep practicing!'
                       : 'Review the material and try again.'}
                 </p>
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-gray-500 dark:text-slate-400">
                   You answered {record.correct} out of {record.total} questions
                   correctly.
                 </p>

@@ -64,21 +64,21 @@ function Records() {
   }
 
   return (
-    <div className="min-h-screen w-full flex flex-col bg-[#0E0F17] text-white">
+    <div className="min-h-screen w-full flex flex-col transition-colors duration-300 bg-gradient-to-b from-pink-50 via-white to-white text-gray-900 dark:bg-gradient-to-b dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 dark:text-gray-100">
       {/* Header */}
-      <header className="sticky top-0 z-20 flex items-center gap-3 px-5 py-4 border-b border-slate-700/60 bg-[#0E0F17]/90 backdrop-blur-sm">
+      <header className="sticky top-0 z-20 flex items-center gap-3 px-5 py-4 border-b backdrop-blur-sm bg-white/80 border-gray-200 dark:bg-gray-900/80 dark:border-gray-700">
         <button
           type="button"
           onClick={() => navigate('/home')}
           aria-label="Go back to Home"
-          className="flex items-center justify-center w-10 h-10 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
+          className="flex items-center justify-center w-10 h-10 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/60 transition-colors"
         >
           <ArrowLeft size={22} />
         </button>
 
         <div className="flex-1 min-w-0">
-          <h1 className="text-xl font-bold text-slate-100 truncate">Records</h1>
-          <p className="text-xs text-slate-400 truncate">
+          <h1 className="text-xl font-bold text-gray-900 dark:text-slate-100 truncate">Records</h1>
+          <p className="text-xs text-gray-500 dark:text-slate-400 truncate">
             Review your past quiz attempts.
           </p>
         </div>
@@ -95,19 +95,19 @@ function Records() {
                   key={record.id}
                   type="button"
                   onClick={() => handleOpenRecord(record)}
-                  className="group flex flex-col gap-3 p-5 rounded-xl bg-slate-900/80 border border-slate-700/60 text-left hover:border-[#e06691]/50 transition-colors"
+                  className="group flex flex-col gap-3 p-5 rounded-xl bg-white border border-gray-200 text-left hover:border-[#e06691]/50 transition-colors dark:bg-gray-800/60 dark:border-gray-700 dark:hover:border-[#e06691]/50"
                 >
                   <div className="flex items-start justify-between gap-3">
-                    <h2 className="text-lg font-semibold text-slate-100 leading-snug break-words min-w-0">
+                    <h2 className="text-lg font-semibold text-gray-900 dark:text-slate-100 leading-snug break-words min-w-0">
                       {record.title}
                     </h2>
                     <ChevronRight
                       size={20}
-                      className="shrink-0 text-slate-500 group-hover:text-[#e06691] transition-colors"
+                      className="shrink-0 text-gray-400 group-hover:text-[#e06691] dark:text-slate-500 transition-colors"
                     />
                   </div>
 
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-gray-500 dark:text-slate-400">
                     {formatTimestamp(record.timestamp)}
                   </p>
 
@@ -131,10 +131,10 @@ function Records() {
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center gap-4 py-20 text-center">
-            <span className="flex items-center justify-center w-16 h-16 rounded-2xl bg-slate-900/80 border border-slate-700/60">
+            <span className="flex items-center justify-center w-16 h-16 rounded-2xl bg-white border border-gray-200 dark:bg-gray-800/60 dark:border-gray-700">
               <History size={32} className="text-[#e06691]" />
             </span>
-            <p className="text-slate-400">
+            <p className="text-gray-500 dark:text-slate-400">
               No quiz attempts yet. Take a quiz to see your records here!
             </p>
           </div>

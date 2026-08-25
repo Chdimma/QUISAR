@@ -132,24 +132,24 @@ function Settings() {
     <div
       className={`min-h-screen w-full flex flex-col transition-colors duration-300 ${
         darkMode
-          ? 'dark:bg-[#0E0F17] dark:text-white'
+          ? 'dark:bg-gradient-to-b dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 dark:text-gray-100'
           : 'bg-gradient-to-b from-pink-50 via-white to-white text-gray-900'
       }`}
     >
       {/* Header */}
-      <header className="sticky top-0 z-20 flex items-center gap-3 px-5 py-4 border-b border-slate-700/60 bg-[#0E0F17]/90 backdrop-blur-sm text-white">
+      <header className="sticky top-0 z-20 flex items-center gap-3 px-5 py-4 border-b backdrop-blur-sm bg-white/80 border-gray-200 dark:bg-gray-900/80 dark:border-gray-700">
         <button
           type="button"
           onClick={() => navigate('/home')}
           aria-label="Go back to Home"
-          className="flex items-center justify-center w-10 h-10 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
+          className="flex items-center justify-center w-10 h-10 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/60 transition-colors"
         >
           <ArrowLeft size={22} />
         </button>
 
         <div className="flex-1 min-w-0">
-          <h1 className="text-xl font-bold text-slate-100 truncate">Settings</h1>
-          <p className="text-xs text-slate-400 truncate">
+          <h1 className="text-xl font-bold text-gray-900 dark:text-slate-100 truncate">Settings</h1>
+          <p className="text-xs text-gray-500 dark:text-slate-400 truncate">
             Manage your preferences and account.
           </p>
         </div>
@@ -159,8 +159,8 @@ function Settings() {
       <main className="flex-1 w-full max-w-2xl mx-auto px-5 py-6 pb-28">
         <div className="flex flex-col gap-5">
           {/* Appearance */}
-          <section className="rounded-xl bg-slate-900/80 border border-slate-700/60 p-5">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-4">
+          <section className="rounded-xl bg-white border border-gray-200 p-5 dark:bg-gray-800/60 dark:border-gray-700">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-slate-400 mb-4">
               Appearance
             </h2>
 
@@ -172,10 +172,10 @@ function Settings() {
                   <Sun size={22} className="text-[#e06691]" />
                 )}
                 <div>
-                  <p className="text-base font-semibold text-slate-100">
+                  <p className="text-base font-semibold text-gray-900 dark:text-slate-100">
                     {darkMode ? 'Dark Mode' : 'Light Mode'}
                   </p>
-                  <p className="text-sm text-slate-400">
+                  <p className="text-sm text-gray-500 dark:text-slate-400">
                     Toggle between light and dark appearance.
                   </p>
                 </div>
@@ -202,8 +202,8 @@ function Settings() {
           </section>
 
           {/* Account */}
-          <section className="rounded-xl bg-slate-900/80 border border-slate-700/60 p-5">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-4">
+          <section className="rounded-xl bg-white border border-gray-200 p-5 dark:bg-gray-800/60 dark:border-gray-700">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-slate-400 mb-4">
               Account
             </h2>
 
@@ -212,44 +212,44 @@ function Settings() {
               <button
                 type="button"
                 onClick={openAbout}
-                className="flex items-center gap-3 py-3.5 text-left transition-colors hover:text-white group"
+                className="flex items-center gap-3 py-3.5 text-left transition-colors group"
               >
                 <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#e06691]/10 text-[#e06691] border border-[#e06691]/30 group-hover:bg-[#e06691]/20 transition-colors">
                   <Info size={20} />
                 </span>
                 <span className="flex-1">
-                  <span className="block text-base font-semibold text-slate-100">
+                  <span className="block text-base font-semibold text-gray-900 dark:text-slate-100">
                     About Us
                   </span>
-                  <span className="block text-sm text-slate-400">
+                  <span className="block text-sm text-gray-500 dark:text-slate-400">
                     Learn more about Quisar.
                   </span>
                 </span>
-                <span className="text-slate-500 group-hover:text-[#e06691] transition-colors">
+                <span className="text-gray-400 group-hover:text-[#e06691] dark:text-slate-500 transition-colors">
                   ›
                 </span>
               </button>
 
-              <div className="h-px bg-slate-700/60" />
+              <div className="h-px bg-gray-200 dark:bg-slate-700/60" />
 
               {/* Reset Password */}
               <button
                 type="button"
                 onClick={openReset}
-                className="flex items-center gap-3 py-3.5 text-left transition-colors hover:text-white group"
+                className="flex items-center gap-3 py-3.5 text-left transition-colors group"
               >
                 <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#e06691]/10 text-[#e06691] border border-[#e06691]/30 group-hover:bg-[#e06691]/20 transition-colors">
                   <KeyRound size={20} />
                 </span>
                 <span className="flex-1">
-                  <span className="block text-base font-semibold text-slate-100">
+                  <span className="block text-base font-semibold text-gray-900 dark:text-slate-100">
                     Reset Password
                   </span>
-                  <span className="block text-sm text-slate-400">
+                  <span className="block text-sm text-gray-500 dark:text-slate-400">
                     Update your account password.
                   </span>
                 </span>
-                <span className="text-slate-500 group-hover:text-[#e06691] transition-colors">
+                <span className="text-gray-400 group-hover:text-[#e06691] dark:text-slate-500 transition-colors">
                   ›
                 </span>
               </button>
@@ -257,7 +257,7 @@ function Settings() {
           </section>
 
           {/* Sign out */}
-          <section className="rounded-xl bg-slate-900/80 border border-slate-700/60 p-5">
+          <section className="rounded-xl bg-white border border-gray-200 p-5 dark:bg-gray-800/60 dark:border-gray-700">
             <button
               type="button"
               onClick={handleLogOut}
