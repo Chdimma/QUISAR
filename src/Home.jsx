@@ -174,7 +174,7 @@ function Home() {
               </span>
               <span className="text-lg font-semibold">Teasers</span>
               <span className="text-sm text-gray-500 dark:text-gray-400">
-                Get inspired with quick writing prompts.
+                Fun challenges to test your knowledge.
               </span>
             </button>
           </div>
