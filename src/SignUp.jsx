@@ -5,21 +5,20 @@ function SignUp() {
   const [fullName, setFullName] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setError('')
 
-    if (!fullName.trim() || !username.trim() || !password.trim()) {
-      setError('Please fill in all fields.')
-      return
+    // Bypass authentication: store user state (or fallback to "Explorer")
+    const user = {
+      fullName: fullName.trim() || 'Explorer',
+      username: username.trim() || fullName.trim() || 'Explorer',
     }
+    localStorage.setItem('quisar_user', JSON.stringify(user))
 
-    // Store user state as needed (e.g., in localStorage or context)
-    // For this demo, we just redirect back to login
-    navigate('/login')
+    // Immediately navigate to Home regardless of input values
+    navigate('/home')
   }
 
   return (
@@ -63,8 +62,6 @@ function SignUp() {
               autoComplete="new-password"
             />
           </div>
-
-          {error && <p className="form-error">{error}</p>}
 
           <button type="submit" className="auth-button">
             Sign Up

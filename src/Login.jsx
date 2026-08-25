@@ -4,18 +4,16 @@ import { Link, useNavigate } from 'react-router-dom'
 function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setError('')
 
-    if (!username.trim() || !password.trim()) {
-      setError('Please fill in both username and password.')
-      return
-    }
+    // Bypass authentication: store user state (or fallback to "Explorer")
+    const user = username.trim() || 'Explorer'
+    localStorage.setItem('quisar_user', JSON.stringify({ username: user }))
 
+    // Immediately navigate to Home regardless of input values
     navigate('/home')
   }
 
@@ -48,8 +46,6 @@ function Login() {
               autoComplete="current-password"
             />
           </div>
-
-          {error && <p className="form-error">{error}</p>}
 
           <button type="submit" className="auth-button">
             Log In
