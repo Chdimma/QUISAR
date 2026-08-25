@@ -4,6 +4,7 @@ import Splash from './Splash'
 import Login from './Login'
 import SignUp from './SignUp'
 import Home from './Home'
+import Learn from './Learn'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/learn" element={<Learn />} />
     </Routes>
   )
 }
