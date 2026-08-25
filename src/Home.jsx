@@ -120,8 +120,8 @@ function Home() {
               </Link>
 
               {/* Notes */}
-              <button
-                type="button"
+              <Link
+                to="/notes"
                 className="group flex flex-col items-start gap-3 p-6 rounded-2xl border text-left transition-all duration-200 hover:-translate-y-1 hover:shadow-lg bg-white border-gray-200 hover:border-pink-400 hover:shadow-pink-200/50 dark:bg-gray-800/60 dark:border-gray-700 dark:hover:border-pink-500/70 dark:hover:shadow-pink-500/10"
               >
                 <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-pink-100 text-pink-600 dark:bg-pink-500/20 dark:text-pink-400">
@@ -146,7 +146,7 @@ function Home() {
                 <span className="text-sm text-gray-500 dark:text-gray-400">
                   Capture your ideas and drafts.
                 </span>
-              </button>
+              </Link>
             </div>
 
             {/* Bottom row: Teasers (centered) */}

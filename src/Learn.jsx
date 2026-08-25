@@ -14,28 +14,29 @@ function Learn() {
       questionCount: Number(questionCount),
     }
     // Ready for future backend API integration
-    console.log(JSON.stringify(payload))
+    console.log(payload)
   }
 
   return (
-    <div className="min-h-screen w-full flex flex-col bg-slate-950 text-white">
+    <div className="min-h-screen w-full flex flex-col bg-[#0E0F17] text-white">
       {/* Header */}
-      <header className="sticky top-0 z-20 flex items-center gap-3 px-5 py-4 border-b border-slate-800 bg-slate-950/90 backdrop-blur-sm">
-        <button
-          type="button"
-          onClick={() => navigate('/home')}
-          aria-label="Go back to Home"
-          className="flex items-center justify-center w-10 h-10 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
-        >
-          <ArrowLeft size={22} />
-        </button>
-        <h1 className="text-2xl font-bold text-white">Learn</h1>
+      <header className="sticky top-0 z-20 flex flex-col px-5 pt-4 pb-3 border-b border-slate-700/60 bg-[#0E0F17]/90 backdrop-blur-sm">
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => navigate('/home')}
+            aria-label="Go back to Home"
+            className="flex items-center justify-center w-10 h-10 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
+          >
+            <ArrowLeft size={22} />
+          </button>
+          <h1 className="text-2xl font-bold text-white">Learn</h1>
+        </div>
+        <p className="text-slate-400 mt-1 pl-[52px]">What are we learning today?</p>
       </header>
 
       {/* Main content */}
-      <main className="flex-1 w-full max-w-2xl mx-auto px-5 py-8 pb-32">
-        <p className="text-slate-400 mb-8">What are we learning today?</p>
-
+      <main className="flex-1 w-full max-w-2xl mx-auto px-5 py-8 pb-36">
         <form onSubmit={handleStartQuiz} className="flex flex-col gap-6">
           {/* Search / Topic Input */}
           <div>
@@ -58,7 +59,7 @@ function Learn() {
                 placeholder="Enter a study topic or subject"
                 autoComplete="off"
                 inputMode="text"
-                className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-slate-900/80 border border-slate-700/60 text-white placeholder:text-slate-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-colors"
+                className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-slate-900/80 border border-slate-700/60 text-white placeholder:text-slate-500 focus:outline-none focus:border-[#e06691] focus:ring-2 focus:ring-[#e06691]/20 transition-colors"
               />
             </div>
           </div>
@@ -80,22 +81,27 @@ function Learn() {
               min="1"
               max="50"
               inputMode="numeric"
-              className="w-full px-4 py-3.5 rounded-xl bg-slate-900/80 border border-slate-700/60 text-white placeholder:text-slate-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-colors"
+              className="w-full px-4 py-3.5 rounded-xl bg-slate-900/80 border border-slate-700/60 text-white placeholder:text-slate-500 focus:outline-none focus:border-[#e06691] focus:ring-2 focus:ring-[#e06691]/20 transition-colors"
             />
           </div>
+        </form>
+      </main>
 
-          {/* Start Button */}
+      {/* Fixed Start Button */}
+      <div className="fixed bottom-0 left-0 right-0 z-20 px-5 py-4 bg-[#0E0F17]/95 backdrop-blur-sm border-t border-slate-700/60">
+        <div className="max-w-2xl mx-auto">
           <button
-            type="submit"
-            className="mt-4 w-full py-4 rounded-xl bg-purple-600 text-white font-semibold text-lg shadow-lg shadow-purple-600/20 hover:bg-purple-500 active:bg-purple-700 transition-colors"
+            type="button"
+            onClick={handleStartQuiz}
+            className="w-full py-4 rounded-xl bg-[#e06691] text-white font-semibold text-lg shadow-lg shadow-[#e06691]/20 hover:bg-[#d87093] active:bg-[#d87093] transition-colors"
           >
             <span className="flex items-center justify-center gap-2">
               <Play size={20} />
               Start
             </span>
           </button>
-        </form>
-      </main>
+        </div>
+      </div>
     </div>
   )
 }
