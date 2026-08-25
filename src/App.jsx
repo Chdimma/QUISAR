@@ -5,6 +5,8 @@ import Login from './Login'
 import SignUp from './SignUp'
 import Home from './Home'
 import Learn from './Learn'
+import QuizPage from './QuizPage'
+import RiddlePage from './RiddlePage'
 import Notes from './Notes'
 import Settings from './Settings'
 import Records from './Records'
@@ -18,6 +20,8 @@ function App() {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/home" element={<Home />} />
       <Route path="/learn" element={<Learn />} />
+      <Route path="/quiz" element={<QuizPage />} />
+      <Route path="/riddle" element={<RiddlePage />} />
       <Route path="/notes" element={<Notes />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/records" element={<Records />} />

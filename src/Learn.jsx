@@ -1,20 +1,46 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ArrowLeft, Search, Play } from 'lucide-react'
+import { ArrowLeft, Search, Play, Loader2 } from 'lucide-react'
+
+const API_URL = 'http://localhost:5000/api/quiz'
 
 function Learn() {
   const [topic, setTopic] = useState('')
   const [questionCount, setQuestionCount] = useState('')
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
   const handleStartQuiz = (e) => {
     e.preventDefault()
-    const payload = {
-      topic,
-      questionCount: Number(questionCount),
+    handleStart()
+  }
+
+  const handleStart = async () => {
+    if (!topic.trim()) {
+      alert('Please enter a study topic.')
+      return
     }
-    // Ready for future backend API integration
-    console.log(payload)
+
+    setLoading(true)
+
+    try {
+      const limit = questionCount ? Number(questionCount) : 10
+      const response = await fetch(
+        `${API_URL}?topic=${encodeURIComponent(topic.trim())}&limit=${limit}`
+      )
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`)
+      }
+
+      const data = await response.json()
+
+      navigate('/quiz', { state: { questions: data, topic: topic.trim() } })
+    } catch (error) {
+      alert(`Failed to load quiz questions: ${error.message}`)
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -92,12 +118,22 @@ function Learn() {
         <div className="max-w-2xl mx-auto">
           <button
             type="button"
-            onClick={handleStartQuiz}
-            className="w-full py-4 rounded-xl bg-[#e06691] text-white font-semibold text-lg shadow-lg shadow-[#e06691]/20 hover:bg-[#d87093] active:bg-[#d87093] transition-colors"
+            onClick={handleStart}
+            disabled={loading}
+            className="w-full py-4 rounded-xl bg-[#e06691] text-white font-semibold text-lg shadow-lg shadow-[#e06691]/20 hover:bg-[#d87093] active:bg-[#d87093] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           >
             <span className="flex items-center justify-center gap-2">
-              <Play size={20} />
-              Start
+              {loading ? (
+                <>
+                  <Loader2 size={20} className="animate-spin" />
+                  Loading...
+                </>
+              ) : (
+                <>
+                  <Play size={20} />
+                  Start
+                </>
+              )}
             </span>
           </button>
         </div>
